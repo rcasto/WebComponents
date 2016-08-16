@@ -1,4 +1,7 @@
  var imageTest = /image\/*/;
+ var RED = 0.2126;
+ var GREEN = 0.7152;
+ var BLUE = 0.0722;
 
 // Grab the imported document object
 var importDoc = document._currentScript.ownerDocument;
@@ -60,9 +63,18 @@ ComponentProto.createdCallback = function () {
     // Attach filter button handlers
     grayscale.addEventListener('click', function () {
         var imageData = context.getImageData(0, 0, canvas.width, canvas.height);
+        var average, r, g, b;
         for (var i = 0; i < imageData.data.length; i += 4) {
-            
+            r = imageData.data[i];
+            g = imageData.data[i + 1];
+            b = imageData.data[i + 2];
+            average = r * RED + g * GREEN + b * BLUE;
+
+            imageData.data[i] = average;
+            imageData.data[i + 1] = average;
+            imageData.data[i + 2] = average;
         }
+        context.putImageData(imageData, 0, 0);
     });
 };
 
