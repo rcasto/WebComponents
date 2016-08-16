@@ -1,6 +1,15 @@
-<template id="custom">
+<!--<link rel="stylesheet" href="component-style.css" />-->
+<template class="drag-drop">
     <div class="container">
-        <h2>Drag and Drop files here</h2>
+        <!-- Users solution from here: http://stackoverflow.com/questions/23176330/use-a-remote-stylesheet-inside-a-template-tag-with-shadow-dom -->
+        <style>@import "component-style.css";</style>
+        <div class="dragdrop-info absolute-center">
+            <h2>Drag and drop image here</h2>
+        </div>
+        <canvas></canvas>
+        <div class="filters">
+            <button class="grayscale">GrayScale</button>
+        </div>
     </div>
 </template>
 <script type="text/javascript" src="webcomponents.js/webcomponents.js"></script>
