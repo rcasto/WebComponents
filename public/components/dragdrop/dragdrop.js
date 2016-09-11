@@ -79,6 +79,6 @@ ComponentProto.createdCallback = function () {
 };
 
 // Register our new element
-var DragDrop = document.registerElement('test-component', {
+var DragDrop = document.registerElement('drag-drop', {
     prototype: ComponentProto
 });
