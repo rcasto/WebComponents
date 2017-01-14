@@ -5,8 +5,8 @@ var app = express();
 var port = process.env.PORT || 3000;
 
 // Setup static routing
-app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'node_modules')));
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', function (req, res) {
     res.sendFile('index.html');
